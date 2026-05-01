@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title><%= title %></title>
+  <meta name="description" content="<%= meta_description %>">
+  <!-- Open Graph (Facebook, LinkedIn, Pinterest, WhatsApp, …) -->
+  <meta property="og:title"         content="<%= title %>" />
+  <meta property="og:description"   content="<%= meta_description %>" />
+  <meta property="og:url"           content="<%= pageUrl %>" />
+  <meta property="og:type"          content="<%= pageType %>" />
+  <meta property="og:image"         content="<%= pageImage %>" />
+  <meta property="og:image:width"   content="<%= imageWidth %>" />
+  <meta property="og:image:height"  content="<%= imageHeight %>" />
+  <meta property="og:site_name"     content="<%= title_heading %>" />
+  <meta property="og:locale"        content="<%= locale %>" />
+  <!-- Facebook Insights / Insights admins -->
+  <!-- <meta property="fb:app_id"        content="<%= //fbAppId %>" /> -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"         content="summary_large_image" />
+  <!-- <meta name="twitter:site"         content="@<%= //twitterHandle %>" /> -->
+  <!-- <meta name="twitter:creator"      content="@<%= //twitterCreator || twitterHandle %>" /> -->
+  <meta name="twitter:title"        content="<%= title %>" />
+  <meta name="twitter:description"  content="<%= meta_description %>" />
+  <meta name="twitter:image"        content="<%= pageImage %>" />
+
+  <!-- Opcional: para compatibilidad con algunos navegadores/redes -->
+  <link rel="image_src"             href="<%= pageImage %>" />
+  <link rel="canonical"             href="<%= pageUrl %>" />
+  
+  <%- include('partials/header') %>
+
+  <h1 hidden><%= title_heading %></h1>
+  <section id="blog">
+    <!-- Se agrega un overlay oscuro opcional -->
+    <div class="blog-overlay"></div>
+    <div class="blog-container">
+      <div class="blog-content">
+        <h2>BLOG</h2>
+        <p>
+          Marketing, Digital Planning, Inteligencia Artificial, entre otros, son los temas que encontrarás en nuestro blog.
+        </p>
+        <p>¡Nos vemos allí!</p>
+      </div>
+    </div>
+  </section>
+
+<section id="blog_entradas">
+  <div class="blog__entries">
+    <article class="blog__entry">
+      <time datetime="2025-05-29">29 Mayo 2025</time>
+      <h2>¿Cuándo una empresa debería contratar una agencia de marketing digital?</h2>
+      <p>Descubre cuándo tu empresa necesita una agencia de marketing digital y cómo aprovecharla estratégicamente.</p>
+      <a class="ver-mas-btn" href="/whatsyourmood/contratar-agencia-marketing-digital">Ver más</a>
+    </article>
+
+    <article class="blog__entry">
+      <time datetime="2023-05-29">29 Mayo 2023</time>
+      <h2>Las 3 A’s de la regionalización</h2>
+      <p>Asertividad, agilidad, adaptación.</p>
+      <a class="ver-mas-btn" href="/whatsyourmood/regionalizacion">Ver más</a>
+    </article>
+
+    <article class="blog__entry">
+      <time datetime="2023-04-29">29 Abril 2023</time>
+      <h2>El “nuevo” medio digital</h2>
+      <p>Lejos de ser posts de celebrities aislados, hoy son tomadores de decisiones en las marcas.</p>
+      <a class="ver-mas-btn" href="/whatsyourmood/nuevo-medio-digital">Ver más</a>
+    </article>
+
+    <article class="blog__entry">
+      <time datetime="2023-04-29">29 Abril 2023</time>
+      <h2>Los algoritmos en lo orgánico</h2>
+      <p>Para muchos creadores de contenido digital producir contenido orgánico no es equitativo al tiempo de elaboración.</p>
+      <a class="ver-mas-btn" href="/whatsyourmood/algoritmos-organico">Ver más</a>
+    </article>
+  </div>
+</section>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

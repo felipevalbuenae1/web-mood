@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "outDir": "public/dist",
+    "rootDir": "src/",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["ES6", "DOM"]
+  },
+  "include": [
+    "src/**/*.ts" // Incluir todos los archivos .ts en src/
+  ],
+  "exclude": [
+    "node_modules", // Ignorar node_modules
+    "src/views", // No incluir views en la compilación
+    "src/controllers", // No incluir controllers
+    "src/routes", // No incluir routes
+    "src/utils" // No incluir utils
+  ]
+}

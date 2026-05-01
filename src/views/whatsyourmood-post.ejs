@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+  <meta name="description" content="<%= meta_description %>" />
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:description" content="<%= meta_description %>" />
+  <meta property="og:url" content="<%= pageUrl %>" />
+  <meta property="og:type" content="<%= pageType %>" />
+  <meta property="og:image" content="<%= pageImage %>" />
+  <meta property="og:image:width" content="<%= imageWidth %>" />
+  <meta property="og:image:height" content="<%= imageHeight %>" />
+  <meta property="og:site_name" content="<%= title_heading %>" />
+  <meta property="og:locale" content="<%= locale %>" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="<%= title %>" />
+  <meta name="twitter:description" content="<%= meta_description %>" />
+  <meta name="twitter:image" content="<%= pageImage %>" />
+  <link rel="image_src" href="<%= pageImage %>" />
+  <link rel="canonical" href="<%= pageUrl %>" />
+
+  <%- include('partials/header') %>
+
+  <main id="blog_post" class="blog-post-container">
+    <section class="blog-post-header">
+      <p class="blog-post-date"><%= publishedAt %></p>
+      <h1><%= title_heading %></h1>
+      <p class="blog-post-excerpt"><%= excerpt %></p>
+    </section>
+
+    <section class="blog-post-content">
+      <% content.forEach(function(block) { %>
+        <%- block %>
+      <% }) %>
+    </section>
+
+    <% if (footerText) { %>
+      <section class="blog-post-footer">
+        <p class="text-footer-dialog"><%= footerText %></p>
+      </section>
+    <% } %>
+
+    <section class="blog-post-actions">
+      <a class="ver-mas-btn" href="/whatsyourmood">Volver al blog</a>
+    </section>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>
