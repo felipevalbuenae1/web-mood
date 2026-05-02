@@ -8,10 +8,10 @@ const app = express();
 
 // Configurar el motor de plantillas EJS
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..', 'src', 'views'));
+app.set('views', path.join(process.cwd(), 'src', 'views'));
 
 // Configurar la ruta para los archivos estáticos en 'public'
-app.use(express.static(path.join(__dirname, '..', 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Middleware para parsear los datos del formulario
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -95,25 +95,61 @@ app.get('/whatsyourmood', (req, res) => {
 
 app.get('/whatsyourmood/contratar-agencia-marketing-digital', (req, res) => {
   res.render('contratar-agencia-marketing-digital', {
+    title: '¿Cuándo una empresa debería contratar una agencia de marketing digital? - MOOD',
+    page: 'whatsyourmood-post-contratar-agencia-marketing-digital',
+    meta_description: 'Descubre cuándo una empresa debe contratar una agencia de marketing digital y cómo elegir la adecuada.',
+    title_heading: '¿Cuándo una empresa debería contratar una agencia de marketing digital?',
+    pageImage: 'images/Mood-thumbnail.webp',
     pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    pageType: 'website',
+    locale: 'es_PE',
+    imageWidth: '1200',
+    imageHeight: '630'
   });
 });
 
 app.get('/whatsyourmood/regionalizacion', (req, res) => {
   res.render('regionalizacion', {
+    title: 'Las 3 A’s de la regionalización - MOOD',
+    page: 'whatsyourmood-post-regionalizacion',
+    meta_description: 'Descubre las 3 A’s de la regionalización y cómo hacer tu marketing multinacional más efectivo.',
+    title_heading: 'Las 3 A’s de la regionalización',
+    pageImage: 'images/Mood-thumbnail.webp',
     pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    pageType: 'website',
+    locale: 'es_PE',
+    imageWidth: '1200',
+    imageHeight: '630'
   });
 });
 
 app.get('/whatsyourmood/nuevo-medio-digital', (req, res) => {
   res.render('nuevo-medio-digital', {
+    title: 'El “nuevo” medio digital - MOOD',
+    page: 'whatsyourmood-post-nuevo-medio-digital',
+    meta_description: 'Entiende por qué el medio digital hoy es influenciadores y cómo sacarles partido en tu estrategia.',
+    title_heading: 'El “nuevo” medio digital',
+    pageImage: 'images/Mood-thumbnail.webp',
     pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    pageType: 'website',
+    locale: 'es_PE',
+    imageWidth: '1200',
+    imageHeight: '630'
   });
 });
 
 app.get('/whatsyourmood/algoritmos-organico', (req, res) => {
   res.render('algoritmos-organico', {
+    title: 'Los algoritmos en lo orgánico - MOOD',
+    page: 'whatsyourmood-post-algoritmos-organico',
+    meta_description: 'Consejos para mejorar el rendimiento orgánico frente a los algoritmos de redes sociales.',
+    title_heading: 'Los algoritmos en lo orgánico',
+    pageImage: 'images/Mood-thumbnail.webp',
     pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    pageType: 'website',
+    locale: 'es_PE',
+    imageWidth: '1200',
+    imageHeight: '630'
   });
 });
 

@@ -106,6 +106,7 @@ export default class PageController {
   }
 
   static whatsYourMoodPost(req: Request, res: Response) {
+    console.log('Slug recibido:', req.params.slug); // Agrega este log para verificar el slug
     const { slug } = req.params;
     const post = PageController.blogPosts[slug];
 
@@ -113,25 +114,64 @@ export default class PageController {
       return res.redirect('/whatsyourmood');
     }
 
-    res.render('whatsyourmood-post', {
-      title: `${post.title} - MOOD`,
-      page: 'whatsyourmood-post',
-      meta_description: post.meta_description,
-      title_heading: post.title,
-      pageImage: 'images/Mood-thumbnail.webp',
-      pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
-      pageType: 'website',
-      locale: 'es_PE',
-      imageWidth: '1200',
-      imageHeight: '630',
-      publishedAt: post.publishedAt,
-      excerpt: post.excerpt,
-      content: post.content,
-      footerText: post.footerText,
-    });
+    if (slug === 'contratar-agencia-marketing-digital') {
+      // return res.render('/whatsyourmood/' + slug );
+      // return res.redirect('/contratar-agencia-marketing-digital');
+
+      res.render('contratar-agencia-marketing-digital', { title: `${post.title} - MOOD`, page: 'whatsyourmood-post-contratar-agencia-marketing-digital', meta_description: post.meta_description, title_heading: post.title, pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+    }
+    else if (slug === 'regionalizacion') {
+      // return res.render('/whatsyourmood/' + slug );
+      // return res.redirect('/regionalizacion');
+      res.render('regionalizacion', { title: `${post.title} - MOOD`, page: 'whatsyourmood-post-regionalizacion', meta_description: post.meta_description, title_heading: post.title, pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+    }
+    else if (slug === 'nuevo-medio-digital') {
+      res.render('nuevo-medio-digital', { title: `${post.title} - MOOD`, page: 'whatsyourmood-post-nuevo-medio-digital', meta_description: post.meta_description, title_heading: post.title, pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+    }
+    else if (slug === 'algoritmos-organico') {
+      res.render('algoritmos-organico', { title: `${post.title} - MOOD`, page: 'whatsyourmood-post-algoritmos-organico', meta_description: post.meta_description, title_heading: post.title, pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+    }
+    else {
+      res.redirect('/whatsyourmood');
+    }
+
+    // res.render('whatsyourmood-post', {
+    //   title: `${post.title} - MOOD`,
+    //   page: 'whatsyourmood-post',
+    //   meta_description: post.meta_description,
+    //   title_heading: post.title,
+    //   pageImage: 'images/Mood-thumbnail.webp',
+    //   pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl,
+    //   pageType: 'website',
+    //   locale: 'es_PE',
+    //   imageWidth: '1200',
+    //   imageHeight: '630',
+    //   publishedAt: post.publishedAt,
+    //   excerpt: post.excerpt,
+    //   content: post.content,
+    //   footerText: post.footerText,
+    // });
   }
 
-  // Renderizar el formulario de contacto
+  static whatsYourMoodPostContratarAgencia(req: Request, res: Response) {
+    res.render('contratar-agencia-marketing-digital', { title: '¿Cuándo una empresa debería contratar una agencia de marketing digital? - MOOD', page: 'whatsyourmood-post-contratar-agencia-marketing-digital', meta_description: 'Descubre cuándo una empresa debe contratar una agencia de marketing digital y cómo elegir la adecuada.', title_heading: '¿Cuándo una empresa debería contratar una agencia de marketing digital?', pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630'});
+    }
+  
+    static whatsYourMoodPostRegionalizacion(req: Request, res: Response) {
+      res.render('regionalizacion', { title: 'Las 3 A’s de la regionalización - MOOD', page: 'whatsyourmood-post-regionalizacion', meta_description: 'Asertividad, agilidad, adaptación.', title_heading: 'Las 3 A’s de la regionalización', pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+  
+    }
+  
+    static whatsYourMoodPostNuevoMedioDigital(req: Request, res: Response) {
+      res.render('nuevo-medio-digital', { title: 'El “nuevo” medio digital - MOOD', page: 'whatsyourmood-post-nuevo-medio-digital', meta_description: 'Hoy los influencers y creadores de contenido deciden cómo una marca puede ser más relevante.', title_heading: 'El “nuevo” medio digital', pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+    }
+  
+
+    static whatsYourMoodPostAlgoritmosOrganico(req: Request, res: Response) {
+      res.render('algoritmos-organico', { title: 'Los algoritmos en lo orgánico - MOOD', page: 'whatsyourmood-post-algoritmos-organico', meta_description: 'El contenido orgánico depende del algoritmo; aquí tienes consejos para competir bien.', title_heading: 'Los algoritmos en lo orgánico', pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630' });
+    }
+    
+      // Renderizar el formulario de contacto
   static contactForm(req: Request, res: Response) {
     res.render('contact', { title: 'Contáctanos - MOOD', page: 'contact', meta_description: 'Contáctanos a Mood, estamos aquí para ayudarte. Completa nuestro formulario de contacto y permítenos brindarte soluciones con nuestra agencia creativa', title_heading: 'Contáctanos', pageImage: 'images/Mood-thumbnail.webp', pageUrl: req.protocol + '://' + req.get('host') + req.originalUrl, pageType: 'website', locale: 'es_PE', imageWidth: '1200', imageHeight: '630'});
   }
@@ -142,4 +182,3 @@ export default class PageController {
   }
   
 }
-

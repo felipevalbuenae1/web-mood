@@ -11,11 +11,11 @@ const port = process.env.PORT || 4000;
 // Configurar el motor de plantillas EJS
 app.set('view engine', 'ejs');
 
-// Configurar la carpeta donde se encuentran las vistas EJS
-app.set('views', path.join(__dirname, '..', '..', 'src', 'views'));
+// Usar process.cwd() para garantizar que Vercel encuentre las vistas en producción
+app.set('views', path.join(process.cwd(), 'src', 'views'));
 
 // Configurar la ruta para los archivos estáticos en 'public'
-app.use(express.static(path.join(__dirname, '..', '..', 'public')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Middleware para parsear los datos del formulario
 app.use(bodyParser.urlencoded({ extended: true }));  // Asegúrate de que esté configurado
@@ -27,16 +27,17 @@ app.use(cors({
   allowedHeaders: ['Content-Type'],
 }));
 
-// Configuración de las rutas
-app.use('/', router);
-
 // Configuración de las sesiones
+// IMPORTANTE: Debe ir antes de las rutas
 app.use(session({
   secret: 'fas5zr23rdrt5yt6wqsded58zd24', // Cambia esta clave por una clave secreta de tu elección
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }  // Si estás usando https, cambia esto a true
 }));
+
+// Configuración de las rutas
+app.use('/', router);
 
 // Iniciar el servidor solo en desarrollo
 if (require.main === module) {
